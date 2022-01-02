@@ -1,0 +1,91 @@
+body{
+    margin:0;
+    padding: 0;
+    background-color: #5cdb95;
+    color: #05386b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+ul{
+    margin: 1rem 0 0 0;
+    padding:0;
+    display: inline;
+}
+ul li{
+    display: inline;
+}
+ul li a{
+    text-decoration: none;
+}
+.nav_menu{
+    background-color: #05386b;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+.button{
+    margin:0 2rem 0 0;
+    color: white;
+    
+}
+.login{
+    margin-right: 5rem;
+}
+.logout{
+    margin-right: 5rem;
+    cursor: pointer;
+
+}
+.home{
+    margin-left: 5rem;
+}
+.signup_form{
+    background-color: white;
+    width: 50%;
+    margin:5% auto;
+    border-radius: 1rem;
+}
+.index_form{
+    text-align: center;
+    background-color: white;
+    width: 50%;
+    margin:5% auto;
+    padding:5% 0 0 0;
+    border-radius: 1rem;
+    min-height: 20rem;
+}
+.form_container{
+    padding:8%;
+}
+.form_container h3{
+    padding-bottom: 0.3rem;
+    border-bottom: 4px solid #5cdb95;
+}
+.form_container input{
+    height: 1.8rem;
+    border-radius: 5px;
+    background-color: #5cdb95;
+    border:none;
+}
+#submit{
+    font-size: 1.2rem;
+    width:30%;
+    height: 2rem;
+    cursor: pointer;
+    color:#05386b;
+    font-weight: bold;
+}
+hr{
+    height: 4px;
+    background-color:#5cdb95;
+}
+.ald_sign{
+    background-color:#5cdb95;
+    text-decoration: none;
+    padding:0.3rem 1.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    color:#05386b;
+}

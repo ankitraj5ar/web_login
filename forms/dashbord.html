@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="conatiner">
+        <div class="nav_menu">
+            <ul class="left">
+                <li><a href="dashbord.html" class="button home">Dashboard</a></li>
+            </ul>
+            <ul class="right">
+                <li class="button"><script>document.write(localStorage.getItem("name",name))</script></li>
+                <li class="logout button"><a onclick="logout();">Logout</a></li>
+            </ul>
+        </div>
+        <div class="index_form">
+            <h1>Hi <script>document.write(localStorage.getItem("name",name))</script></h1>
+    </div>
+    </div>
+</body>
+<script>
+    let name =  localStorage.getItem("name")?localStorage.getItem("name"):'';
+    if(name==""){
+        alert("you need to login again");
+        window.location.href="login.html";
+    }
+    function logout(){
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        window.location.href="login.html";
+    }
+</script>
+</html>

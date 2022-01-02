@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        let name =  localStorage.getItem("name")?localStorage.getItem("name"):'';
+            if(name!=""){
+                window.location.href="/forms/dashbord.html";
+            }
+        </script>
+</head>
+<body>
+    <div class="conatiner">
+        <div class="nav_menu">
+            <ul class="left">
+                <li><a href="index.html" class="button home">Home</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="/forms/signup.html" class="signup button">Sign Up</a></li>
+                <li><a href="/forms/login.html" class="login button">Log In</a></li>
+            </ul>
+        </div>
+        <div class="index_form">
+                <h1>Hi User</h1>
+                <h2>Please Sign Un or Log In</h2>
+        </div>
+    </div>   
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="conatiner">
+        <div class="nav_menu">
+            <ul class="left">
+                <li><a href="../index.html" class="button home">Home</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="/forms/signup.html" class="signup button">Sign Up</a></li>
+                <li><a href="/forms/login.html" class="login button">Log In</a></li>
+            </ul>
+        </div>
+    <div class="signup_form">
+        <div class="form_container">
+            <form action="#" method="get">
+            <h3>Sign In</h3>
+            <label for="email">Email :</label><br>
+            <input type="email" name="email" autocomplete="email" id="email" size="40"><br><br>
+            <label for="password">Password :</label><br>
+            <input type="password" name="password" autocomplete="new-password" id="password" size="40"><br><br><br>
+            <input type="submit" onclick="saveData();" id="submit" value="Sign In"><br><br>
+            <hr><br>
+            <label for="ald_member">New user</label><br><br>
+            <a href="signup.html" class="ald_sign">Sign Up</a><br><br>
+        </form>
+        </div>
+    </div>
+    </div>
+</body>
+    <script>
+    let name =  localStorage.getItem("name")?localStorage.getItem("name"):'';
+        if(name!=""){
+            window.location.href="dashbord.html";
+        }
+    function saveData(){
+        let email =  document.getElementById("email").value;
+        let psw = document.getElementById("password").value;
+        let user_record = new Array();
+        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[];
+        if(user_record.some((v)=>{return v.email==email&&v.password==psw}))
+        {
+            alert("Login successfully")
+            let current_user = user_record.filter((v)=>{return v.email==email&&v.password==psw})[0];
+            localStorage.setItem("name",current_user.name);
+            localStorage.setItem("email",current_user.email);
+            window.location.href="dashbord.html";
+        }
+        else{
+           alert("Login Failed");
+        }
+    }
+   </script>
+</html>

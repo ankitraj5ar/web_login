@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        let name =  localStorage.getItem("name")?localStorage.getItem("name"):'';
+            if(name!=""){
+                window.location.href="dashbord.html";
+            }
+        </script>
+</head>
+<body>
+    <div class="conatiner">
+        <div class="nav_menu">
+            <ul class="left">
+                <li><a href="../index.html" class="button home">Home</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="/forms/signup.html" class="signup button">Sign Up</a></li>
+                <li><a href="/forms/login.html" class="login button">Log In</a></li>
+            </ul>
+        </div>
+        <div class="signup_form">
+            <div class="form_container">
+                <form action="#" onsubmit="event.preventDefault();" method="post">
+                <h3>Sign Up</h3>
+                <label for="name">Name :</label><br>
+                <input type="text" name="name" id="name" size="40"><br><br>
+                <label for="email">Email :</label><br>
+                <input type="email" name="email" id="email" autocomplete="username" size="40"><br><br>
+                <label for="password">Password :</label><br>
+                <input type="password" name="password" id="password" autocomplete="new-password" size="40"><br><br>
+                <label for="cnf_password">Confirm Password :</label><br>
+                <input type="password" name="cnf_password" id="cnf_password" autocomplete="new-password" size="40"><br><br><br>
+                <input type="submit" onclick="saveData();" id="submit" value="Sign Up"><br><br>
+                <hr><br>
+                <label for="ald_member">Already signed up?</label><br><br>
+                <a href="login.html" class="ald_sign">Log In</a><br><br>
+                </form>
+            </div>
+        </div>
+        
+    </div>   
+</body>
+<script>
+ function validateForm(){
+    let name=document.getElementById("name").value;  
+    let password=document.getElementById("password").value; 
+    let cnfpassword=document.getElementById("cnf_password").value;  
+    let email=document.getElementById("email").value;  
+    let atposition=email.indexOf("@");  
+    let dotposition=email.lastIndexOf("."); 
+    if (name==null || name==""){  
+    alert("Name can't be blank");  
+    return false;  
+    }else if(password.length<3){  
+    alert("Password must be at least 3 characters long.");  
+    return false;  
+    }   
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length){  
+    alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+    return false;  
+    }    
+    if(password==cnfpassword){  
+    return true;  
+    }  
+    else{  
+    alert("Confirm password must be same!");  
+    return false;  
+    }  
+ }
+
+ function saveData(){
+     let name = document.getElementById("name").value;
+     let email =  document.getElementById("email").value;
+     let psw = document.getElementById("password").value;
+     let user_record = new Array();
+     user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[];
+     x= validateForm();
+     if(!x){
+        console.log(x);
+     }
+    else if(user_record.some((v)=>{return v.email==email}))
+     {
+         alert("Email is already registerd.")
+     }
+     else{
+        user_record.push({
+         "name":name,
+         "email":email,
+         "password":psw
+     })
+     localStorage.setItem("users",JSON.stringify(user_record));
+     alert("Sign up successfully");
+     window.location.href="../index.html";
+     }
+ }
+</script>
+
+</html>
